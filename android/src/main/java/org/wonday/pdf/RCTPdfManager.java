@@ -24,6 +24,7 @@ import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.annotations.ReactProp;
+import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.uimanager.events.RCTEventEmitter;
 import com.facebook.react.common.MapBuilder;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
@@ -118,6 +119,11 @@ public class RCTPdfManager extends SimpleViewManager<PdfView> {
     @ReactProp(name = "fitPolicy")
     public void setFitPolycy(PdfView pdfView, int fitPolicy) {
         pdfView.setFitPolicy(fitPolicy);
+    }
+
+    @ReactMethod
+    public void invalidate(PdfView pdfView) {
+        pdfView.invalidate();
     }
 
     @Override
